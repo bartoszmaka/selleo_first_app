@@ -1,6 +1,6 @@
 describe User do
 
-  before(:each) { @user = User.new(email: 'user@example.com') }
+  before(:each) { @user = User.new(email: 'user@example.com', password: '123123') }
 
   subject { @user }
 
@@ -8,6 +8,12 @@ describe User do
 
   it "#email returns a string" do
     expect(@user.email).to match 'user@example.com'
+  end
+
+  it { should respond_to(:role) }
+
+  it 'has user role by default' do
+    expect(@user.role).to match 'user'
   end
 
 end
