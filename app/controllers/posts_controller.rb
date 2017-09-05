@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     authorize @post
     if @post.save
       flash[:notice] = 'Post succesfully added'
-      redirect_to posts_path
+      redirect_to @post
     else
       flash[:danger] = 'Something went wrong'
       render 'new'
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     authorize @post
     if @post.update(post_params)
       flash[:notice] = 'Post succesfully updated'
-      redirect_to posts_path
+      redirect_to @post
     else
       flash[:danger] = 'Something went wrong'
       render 'edit'
@@ -49,6 +49,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :image)
+    params.require(:post).permit(:title, :content, { images: [] })
   end
 end

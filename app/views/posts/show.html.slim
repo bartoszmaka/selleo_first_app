@@ -8,7 +8,9 @@
         = link_to 'Delete', post_path(@post), class: 'btn btn-danger', method: :delete
 
 h1= @post.title
-= image_tag(@post.image_url, size:'300x300') if @post.image?
+- if @post.images?
+  - @post.images_urls.each do |url|
+    = image_tag(url)
 p= @post.content
 p= @post.owner.email
 

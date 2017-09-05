@@ -6,8 +6,8 @@
   = f.label :content
   = f.text_area :content
   br
-  = f.label :image
-  = f.file_field :image
+  = f.label :images
+  = f.file_field :images, multiple: true
   br
   = f.submit 'Add'
 
