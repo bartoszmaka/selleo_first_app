@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-    content "some comment"
+    content { FFaker::CheesyLingo.paragraph }
     association :owner, factory: :user
     association :post
   end

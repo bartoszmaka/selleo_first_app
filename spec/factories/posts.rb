@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :post do
-    title "Test Title"
-    content "some text"
+    title { FFaker::CheesyLingo.words.join(' ') }
+    content { FFaker::CheesyLingo.paragraph }
     association :owner, factory: :user
   end
 end
