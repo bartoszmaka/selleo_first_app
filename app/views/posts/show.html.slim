@@ -1,5 +1,9 @@
 h1 Post page
 = link_to 'Add comment', new_post_comment_path(@post), class: 'btn btn-primary'
+- if policy(:post).update?
+  = link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'
+- if policy(:post).destroy?
+  = link_to 'Delete', post_path(@post), class: 'btn btn-danger', method: :delete
 
 h1 = @post.title
 p = @post.content

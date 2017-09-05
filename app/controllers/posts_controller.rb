@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     @post.owner = current_user
+    authorize @post
     if @post.save
       flash[:notice] = 'Post succesfully added'
       redirect_to posts_path
@@ -23,9 +24,26 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    authorize @post
+    if @post.update(post_params)
+      flash[:notice] = 'Post succesfully updated'
+      redirect_to posts_path
+    else
+      flash[:danger] = 'Something went wrong'
+      render 'edit'
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    redirect_to root_path
   end
 
   private

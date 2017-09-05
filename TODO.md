@@ -1,9 +1,20 @@
 # Zadanie1
 
+
+* DONE Setup new app with rails composer - use devise
+* DONE Add two types of users (User, Admin) you can use Enum for that
 * DONE user and admin can add post
 * DONE user and admin can add comment
 
-* WAIT make navbar more readable
+* DONE Posts list should be shown on the main page (any user can see them)
+* DONE User and Admin can comment each Post
 
-* TODO prevent user from adding posts with pundit
-* TODO allow admin to delete posts with pundit
+* TODO add uploading images to posts (carrierwave)
+
+* DONE setup pundit
+* DONE only admin can add new Posts and edit them
+
+* TODO Use some WYSIWYG editor for adding/editing Posts and Comments - it can be simple (ask Krzysztof)
+
+* WAIT show user role somewhere near navbar
+* WAIT make navbar more readable
