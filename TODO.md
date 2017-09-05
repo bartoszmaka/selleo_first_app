@@ -18,6 +18,8 @@
 * DONE Fill database with generated records
 * DONE Add images to each post
 
+* DONE only admin and comment owner can delete comment
+
 * TODO Use some WYSIWYG editor for adding/editing Posts and Comments - it can be simple (ask Krzysztof)
 
 * WAIT show user role somewhere near navbar

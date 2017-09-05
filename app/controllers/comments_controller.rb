@@ -10,11 +10,18 @@ class CommentsController < ApplicationController
     @comment.owner = current_user
     if @comment.save
       flash[:notice] = 'Comment succesfully added'
-      redirect_to posts_path
+      redirect_to post_path(@post)
     else
       flash[:danger] = 'Something went wrong'
       render 'new'
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to post_path(@post)
   end
 
   private

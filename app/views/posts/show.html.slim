@@ -1,7 +1,7 @@
 .container
   .row
     .col
-      = link_to 'Add comment', new_post_comment_path(@post), class: 'btn btn-primary'
+      = link_to 'Add comment', new_post_comment_path(@post), class: 'btn btn-success'
       - if policy(:post).update?
         = link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'
       - if policy(:post).destroy?
@@ -12,9 +12,17 @@ h1= @post.title
 p= @post.content
 p= @post.owner.email
 
+= render 'comments/form', post: @post, comment: Comment.new
+
 h1 Comments:
 ul
   - @post.comments.each do |comment|
-    li
-      p= comment.owner.email
-      h3= comment.content
+    hr
+      .row
+        p= comment.owner.email
+        - if policy(@post).destroy?
+          = link_to 'delete', post_comment_path(@post, comment), method: :delete, class: 'btn btn-secondary'
+        - if policy(@post).update?
+          = link_to 'edit', edit_post_comment_path(@post, comment), class: 'btn btn-secondary'
+      .row
+        h3= comment.content
