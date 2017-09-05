@@ -1,0 +1,13 @@
+h1 Post page
+= link_to 'Add comment', new_post_comment_path(@post), class: 'btn btn-primary'
+
+h1 = @post.title
+p = @post.content
+p = @post.owner.email
+
+h1 Comments:
+ul
+  - @post.comments.each do |comment|
+    li
+      p = comment.owner.email
+      h3 = comment.content

@@ -1,0 +1,10 @@
+h1 Posts page
+
+= link_to 'Add post', new_post_path, class: 'btn btn-primary'
+
+ul
+  - @posts.each do |post|
+    li
+      h2 = link_to post.title, post_path(post)
+      p = post.content
+      p = post.owner.email
