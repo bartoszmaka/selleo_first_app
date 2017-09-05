@@ -9,10 +9,14 @@
 * DONE Posts list should be shown on the main page (any user can see them)
 * DONE User and Admin can comment each Post
 
-* TODO add uploading images to posts (carrierwave)
+* DONE setup carrierwave
+* DONE add uploading images to posts (carrierwave)
 
 * DONE setup pundit
 * DONE only admin can add new Posts and edit them
+
+* DONE Fill database with generated records
+* DONE Add images to each post
 
 * TODO Use some WYSIWYG editor for adding/editing Posts and Comments - it can be simple (ask Krzysztof)
 

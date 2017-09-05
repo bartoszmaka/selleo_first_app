@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
 end
 ruby '2.4.0'
 gem 'rails', '~> 5.1.3'
+gem 'carrierwave', '~> 1.0'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -12,10 +13,12 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'pundit'
+gem "mini_magick"
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'ffaker'
 end
 group :development do
   gem 'binding_of_caller'

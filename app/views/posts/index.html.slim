@@ -6,5 +6,6 @@ ul
   - @posts.each do |post|
     li
       h2 = link_to post.title, post_path(post)
+      = image_tag(post.image_url) if post.image?
       p = post.content
       p = post.owner.email
