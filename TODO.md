@@ -22,10 +22,10 @@
 
 * DONE path namespace
 * DONE use bootstrap classes in post: index and show templates
+* DONE make navbar more readable
 
 * TODO frielndy-id gem
 * TODO FormObject pattern
 
 * WAIT pundit rspec  url path name
 * WAIT show user role somewhere near navbar
-* WAIT make navbar more readable
