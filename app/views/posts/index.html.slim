@@ -9,5 +9,5 @@ ul
       - if post.images?
         - post.images_urls.each do |url|
           = image_tag(url)
-      p = post.content
+      p = post.content.html_safe
       p = post.owner.email

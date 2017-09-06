@@ -6,12 +6,33 @@ class CommentPolicy < ApplicationPolicy
     @comment = comment
   end
 
-  def destroy?
-    user.admin? || @comment.owner == current_user
+  def edit?
+    return false unless logged_in?
+    user.admin? || @comment.owner == user
   end
 
   def update?
-    user.admin? || @comment.owner == current_user
+    return false unless logged_in?
+    user.admin? || @comment.owner == user
+  end
+
+  def new?
+    logged_in?
+  end
+
+  def create?
+    logged_in?
+  end
+
+  def destroy?
+    return false unless logged_in?
+    user.admin? || @comment.owner == user
+  end
+
+  private
+
+  def logged_in?
+    !@user.nil?
   end
 end
 

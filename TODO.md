@@ -17,10 +17,17 @@
 
 * DONE Fill database with generated records
 * DONE Add images to each post
+* DONE Add multiple images to each post
 
 * DONE only admin and comment owner can delete comment
 
-* TODO Use some WYSIWYG editor for adding/editing Posts and Comments - it can be simple (ask Krzysztof)
+* DONE Use some WYSIWYG editor for adding/editing Posts and Comments - it can be simple (ask Krzysztof)
 
+* TODO path namespace
+* TODO https://github.com/galetahub/ckeditor
+* TODO pundit rspec  url path name
+* TODO comment#update
+
+* WAIT fix wyswig editor #edit fields load
 * WAIT show user role somewhere near navbar
 * WAIT make navbar more readable

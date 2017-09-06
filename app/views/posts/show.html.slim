@@ -1,7 +1,6 @@
 .container
   .row
     .col
-      = link_to 'Add comment', new_post_comment_path(@post), class: 'btn btn-success'
       - if policy(:post).update?
         = link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'
       - if policy(:post).destroy?
@@ -11,10 +10,15 @@ h1= @post.title
 - if @post.images?
   - @post.images_urls.each do |url|
     = image_tag(url)
-p= @post.content
+p= @post.content.html_safe
 p= @post.owner.email
 
-= render 'comments/form', post: @post, comment: Comment.new
+- if policy(:comment).create?
+  = render 'comments/form', post: @post, comment: @comment
+- else
+  hr
+  h3 only logged in users can comment
+  hr
 
 h1 Comments:
 ul
@@ -22,9 +26,9 @@ ul
     hr
       .row
         p= comment.owner.email
-        - if policy(@post).destroy?
+        - if policy(comment).destroy?
           = link_to 'delete', post_comment_path(@post, comment), method: :delete, class: 'btn btn-secondary'
-        - if policy(@post).update?
+        - if policy(comment).update?
           = link_to 'edit', edit_post_comment_path(@post, comment), class: 'btn btn-secondary'
       .row
-        h3= comment.content
+        h3= comment.content.html_safe

@@ -1,10 +1,13 @@
 class PostsController < ApplicationController
+  before_action { authorize Post }
+
   def index
     @posts = Post.all
   end
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -14,7 +17,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params)
     @post.owner = current_user
-    authorize @post
+    # authorize @post
     if @post.save
       flash[:notice] = 'Post succesfully added'
       redirect_to @post
@@ -30,7 +33,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    authorize @post
+    # authorize @post
     if @post.update(post_params)
       flash[:notice] = 'Post succesfully updated'
       redirect_to @post
@@ -43,6 +46,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
+    flash[:notice] = 'Post succesfully deleted'
     redirect_to root_path
   end
 
