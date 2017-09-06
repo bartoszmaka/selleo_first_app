@@ -1,13 +1,22 @@
-h1 Posts page
+= link_to 'Add post', new_admin_post_path, class: 'btn btn-primary btn-lg btn-block'
 
-= link_to 'Add post', new_admin_post_path, class: 'btn btn-primary'
-
-ul
-  - @posts.each do |post|
-    li
+- @posts.each do |post|
+  .container
+    .row
       h2 = link_to post.title, post_path(post)
-      - if post.images?
-        - post.images_urls.each do |url|
-          = image_tag(url)
+    .row: h5
+      small
+        | By:
+      = post.owner.email
+    .row
+      - if policy(:post).update?
+        = link_to 'Edit', edit_admin_post_path(post), class: 'btn btn-primary btn-sm'
+      - if policy(:post).destroy?
+        = link_to 'Delete', admin_post_path(post), class: 'btn btn-danger btn-sm', method: :delete
+    .row
       p = post.content.html_safe
-      p = post.owner.email
+
+    - if post.images?
+      - post.images_urls.each do |url|
+        = image_tag(url)
+  hr

@@ -20,7 +20,8 @@
 * DONE https://github.com/galetahub/ckeditor
 * DONE comment#update
 
-* WIP path namespace
+* DONE path namespace
+* DONE use bootstrap classes in post: index and show templates
 
 * TODO frielndy-id gem
 * TODO FormObject pattern

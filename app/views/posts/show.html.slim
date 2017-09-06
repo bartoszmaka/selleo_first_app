@@ -1,34 +1,33 @@
 .container
   .row
+    h1= @post.title
+
+  .row
+    h5
+      small
+        | By:
+      = @post.owner.email
+
+  .row
     .col
       - if policy(:post).update?
         = link_to 'Edit', edit_admin_post_path(@post), class: 'btn btn-primary'
       - if policy(:post).destroy?
         = link_to 'Delete', admin_post_path(@post), class: 'btn btn-danger', method: :delete
 
-h1= @post.title
-- if @post.images?
-  - @post.images_urls.each do |url|
-    = image_tag(url)
-p= @post.content.html_safe
-p= @post.owner.email
-
-- if policy(:comment).create?
-  = render 'comments/form', post: @post, comment: @comment
-- else
   hr
-  h3 only logged in users can comment
-  hr
+  p= @post.content.html_safe
 
-h1 Comments:
-ul
-  - @post.comments.each do |comment|
-    hr
-      .row
-        p= comment.owner.email
-        - if policy(comment).destroy?
-          = link_to 'delete', post_comment_path(@post, comment), method: :delete, class: 'btn btn-secondary'
-        - if policy(comment).update?
-          = link_to 'edit', edit_post_comment_path(@post, comment), class: 'btn btn-secondary'
-      .row
-        h3= comment.content.html_safe
+  - if @post.images?
+    - @post.images_urls.each do |url|
+      = image_tag(url)
+
+  hr
+  h1 Comments:
+  - if policy(:comment).create?
+    = render 'comments/form', post: @post, comment: @comment
+  - else
+    h3 only logged in users can comment
+
+  hr
+  = render 'comments/listed_comments', post: @post

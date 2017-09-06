@@ -1,0 +1,11 @@
+ul
+  - post.comments.each do |comment|
+    hr
+      .row
+        p= comment.owner.email
+        - if policy(comment).destroy?
+          = link_to 'delete', post_comment_path(post, comment), method: :delete, class: 'btn btn-secondary'
+        - if policy(comment).update?
+          = link_to 'edit', edit_post_comment_path(post, comment), class: 'btn btn-secondary'
+      .row
+        h3= comment.content.html_safe
