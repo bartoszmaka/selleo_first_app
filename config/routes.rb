@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
 
-  resources :posts do
+  namespace :admin do
+    resources :posts, except: %i[index show]
+  end
+
+  resources :posts, only: %i[index show] do
     resources :comments
   end
 end

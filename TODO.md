@@ -20,10 +20,11 @@
 * DONE https://github.com/galetahub/ckeditor
 * DONE comment#update
 
+* WIP path namespace
+
 * TODO frielndy-id gem
 * TODO FormObject pattern
 
-* WAIT path namespace
 * WAIT pundit rspec  url path name
 * WAIT show user role somewhere near navbar
 * WAIT make navbar more readable
