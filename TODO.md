@@ -23,8 +23,8 @@
 * DONE path namespace
 * DONE use bootstrap classes in post: index and show templates
 * DONE make navbar more readable
+* DONE frielndy-id gem
 
-* TODO frielndy-id gem
 * TODO FormObject pattern
 
 * WAIT pundit rspec  url path name
