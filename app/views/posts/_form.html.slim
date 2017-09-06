@@ -2,9 +2,7 @@
   = render 'form_errors'
   = f.label :title
   = f.text_field :title
-  / = f.cktext_area :title, value: 'title', id: 'title', ckeditor: { toolbar: 'mini' }
   = f.cktext_area :content, value: 'content', id: 'content'
-  / = cktext_area :page, :info, cols: 40, ckeditor: { uiColor: '#AADC6E', toolbar: 'mini' }
   = f.label :images
   = f.file_field :images, multiple: true
 
