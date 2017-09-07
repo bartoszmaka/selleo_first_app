@@ -11,13 +11,13 @@ describe Admin::PostsController, type: :controller do
       end
     end
 
-    # context 'user is not authenticated' do
-    #   it 'redirects to root_path' do
-    #     get :new
-    #     expect(response).to have_http_status 302
-    #     expect(response).to redirect_to root_path
-    #   end
-    # end
+    context 'user is not authenticated' do
+      it 'redirects to root_path' do
+        get :new
+        expect(response).to have_http_status 302
+        expect(response).to redirect_to root_path
+      end
+    end
   end
 
   describe 'GET #edit' do
@@ -32,14 +32,14 @@ describe Admin::PostsController, type: :controller do
       end
     end
 
-    # context 'user is not authenticated' do
-    #   it 'redirects to root_path' do
-    #     resource = create(:post)
-    #     get :edit, params: { id: resource.id }
-    #     expect(response).to have_http_status 302
-    #     expect(response).to redirect_to root_path
-    #   end
-    # end
+    context 'user is not authenticated' do
+      it 'redirects to root_path' do
+        resource = create(:post)
+        get :edit, params: { id: resource.id }
+        expect(response).to have_http_status 302
+        expect(response).to redirect_to root_path
+      end
+    end
   end
 
   describe 'DELETE #destroy' do
