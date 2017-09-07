@@ -6,7 +6,7 @@ class PostForm < Patterns::Form
   attribute :images, JSON
   attribute :user_id, Integer
 
-  validates :title, :content, presence: true
+  validates :title, :user_id, :content, presence: true
 
   private
 
