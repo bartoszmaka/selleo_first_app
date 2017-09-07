@@ -4,6 +4,8 @@ nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
   - if current_user
     p.navbar-brand
       = "#{current_user.email} - #{current_user.role}"
+  button
+    = link_to 'Home', root_path
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
       = render 'layouts/navigation_links'

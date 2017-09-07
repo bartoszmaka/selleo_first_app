@@ -1,5 +1,5 @@
-= form_for @post do |f|
-  = render 'form_errors'
+= form_for [:admin, @form] do |f|
+  / = render 'form_errors'
   = f.label :title
   = f.text_field :title
   = f.cktext_area :content, id: 'content'

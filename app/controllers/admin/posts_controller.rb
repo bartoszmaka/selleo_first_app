@@ -3,15 +3,15 @@ module Admin
     before_action { authorize Post }
 
     def new
-      @post = Post.new
+      @form = PostForm.new(Post.new, {})
     end
 
     def create
-      @post = Post.create(post_params)
-      @post.owner = current_user
-      if @post.save
+      @form = PostForm.new(Post.new, post_params.merge({user_id: current_user.id}))
+      @form.save
+      if @form.save
         flash[:notice] = 'Post succesfully added'
-        redirect_to @post
+        redirect_to @form
       else
         flash[:danger] = 'Something went wrong'
         render 'new'
@@ -19,15 +19,16 @@ module Admin
     end
 
     def edit
-      @post = Post.find(params[:id])
+      @post = Post.friendly.find(params[:id])
+      @form = PostForm.new(@post, {})
     end
 
     def update
-      @post = Post.find(params[:id])
-      # authorize @post
-      if @post.update(post_params)
+      @post = Post.friendly.find(params[:id])
+      @form = PostForm.new(@post, post_params.merge({user_id: current_user.id}))
+      if @form.save
         flash[:notice] = 'Post succesfully updated'
-        redirect_to @post
+        redirect_to @form
       else
         flash[:danger] = 'Something went wrong'
         render 'edit'
@@ -35,7 +36,7 @@ module Admin
     end
 
     def destroy
-      @post = Post.find(params[:id])
+      @post = Post.friendly.find(params[:id])
       @post.destroy
       flash[:notice] = 'Post succesfully deleted'
       redirect_to root_path

@@ -25,7 +25,11 @@
 * DONE make navbar more readable
 * DONE frielndy-id gem
 
-* TODO FormObject pattern
+* DONE FormObject pattern
+* TODO FormObject validate uniqueness of title
+* DONE FormObject #edit
+* TODO FormObject specs
+* TODO display Form errors
 
 * WAIT pundit rspec  url path name
 * WAIT show user role somewhere near navbar
