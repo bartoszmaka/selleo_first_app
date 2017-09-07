@@ -22,10 +22,10 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'ffaker'
+  gem 'pry-rails'
 end
 group :development do
   gem 'binding_of_caller'
-  gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'

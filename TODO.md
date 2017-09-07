@@ -5,6 +5,7 @@
 * WAIT pundit rspec  url path name
 * WAIT FormObject validate uniqueness of title
 
+* TODO Feature specs
 * DONE FormObject specs
 * DONE PostsController specs
 * DONE display Form errors

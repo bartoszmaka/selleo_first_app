@@ -1,5 +1,3 @@
-require 'pry'
-
 describe Admin::PostsController, type: :controller do
   describe 'GET #new' do
     context 'user is authenticated' do

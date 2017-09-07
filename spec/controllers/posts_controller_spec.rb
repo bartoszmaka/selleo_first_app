@@ -1,5 +1,3 @@
-require 'pry'
-
 describe PostsController, type: :controller do
   describe 'GET #index' do
     it 'has 200 OK http status' do
