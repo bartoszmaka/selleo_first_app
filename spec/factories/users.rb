@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user do
+  factory :user, aliases: %i[owner] do
     name { "#{FFaker::CheesyLingo.word}#{rand(50000)}" }
     email { "#{name}@factory.com" }
     password "123123"
