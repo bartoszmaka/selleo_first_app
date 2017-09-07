@@ -1,7 +1,7 @@
 # Zadanie1
 
 
-* WAIT show user role somewhere near navbar
+* DONE show user role somewhere near navbar
 * WAIT pundit rspec  url path name
 * WAIT FormObject validate uniqueness of title
 
