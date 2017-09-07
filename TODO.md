@@ -3,10 +3,11 @@
 
 * WAIT show user role somewhere near navbar
 * WAIT pundit rspec  url path name
+* WAIT FormObject validate uniqueness of title
 
+* DONE FormObject specs
+* DONE PostsController specs
 * DONE display Form errors
-* TODO FormObject specs
-* TODO FormObject validate uniqueness of title
 * DONE FormObject #edit
 * DONE FormObject pattern
 

@@ -8,7 +8,6 @@ module Admin
 
     def create
       @form = PostForm.new(Post.new, post_params.merge({user_id: current_user.id}))
-      @form.save
       if @form.save
         flash[:notice] = 'Post succesfully added'
         redirect_to @form
