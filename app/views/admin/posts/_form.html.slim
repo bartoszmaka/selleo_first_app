@@ -2,11 +2,8 @@
   = render 'form_errors'
   = f.label :title
   = f.text_field :title
-  / = f.text_area :content, :class => 'ckeditor'
-  / div data: {'no-turbolink' => true}
-  div data-turbolinks='false'
-    = f.text_area :content, :class => 'ckeditor'
-    / = f.cktext_area :content, id: 'content'
+  / div data-no-turbolink="true"
+  = f.cktext_area :content, id: 'content'
   = f.label :images
   = f.file_field :images, multiple: true
 

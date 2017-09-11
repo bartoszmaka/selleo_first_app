@@ -13,7 +13,8 @@ feature 'Edit post', js: true do
     new_title = 'new title'
     new_content = 'new content'
     fill_in 'Title', with: new_title
-    fill_in_ckeditor 'content', with: new_content
+    fill_in 'content', with: new_content
+    # fill_in_ckeditor 'content', with: new_content
 
     click_button 'Add'
 

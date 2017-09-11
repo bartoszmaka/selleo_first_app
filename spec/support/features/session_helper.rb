@@ -10,7 +10,7 @@ module Features
     end
 
     def fill_in_ckeditor(locator, opts)
-      content = opts.fetch(:with).to_json # convert to a safe javascript string€ý,€ý,
+      content = opts.fetch(:with).to_json
       page.execute_script <<-SCRIPT
      CKEDITOR.instances['#{locator}'].setData(#{content});
      $('textarea##{locator}').text(#{content});

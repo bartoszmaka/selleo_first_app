@@ -10,9 +10,8 @@ feature 'Edit comment', js: true do
       click_link 'edit'
     end
 
-    binding.pry
-    fill_in_ckeditor 'comment-content', with: 'edit testing message'
-    # fill_in 'content', with: 'edit testing message'
+    # fill_in_ckeditor 'content', with: 'edit testing message'
+    fill_in 'content', with: 'edit testing message'
     # page.driver.browser.navigate.refresh
     click_button 'Add'
 
@@ -28,12 +27,15 @@ feature 'Edit comment', js: true do
     visit post_path(post)
 
     within('div', id: "#{comment.id}") do
-      expect { click_link 'edit' }.to change { Comment.count }.by(-1)
+      click_link 'edit'
     end
 
-    fill_in_ckeditor 'comment-content', with: 'edit testing message'
+    fill_in 'content', with: 'edit testing message'
+    click_button 'Add'
+    # fill_in_ckeditor 'content', with: 'edit testing message'
 
-    expect(page).to have_content 'Comment succesfully editd'
+    expect(page).to have_content 'Comment succesfully updated'
+    expect(page).to have_content 'edit testing message'
   end
 
   scenario 'user cannot edit other user comment' do
