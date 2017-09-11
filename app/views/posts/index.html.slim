@@ -1,7 +1,7 @@
 = link_to 'Add post', new_admin_post_path, class: 'btn btn-primary btn-lg btn-block'
 
 - @posts.each do |post|
-  .container
+  .container id=post.id
     .row
       h2 = link_to post.title, post_path(post)
     .row: h5

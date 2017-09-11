@@ -1,6 +1,7 @@
 ul
   - post.comments.each do |comment|
-    hr
+    = content_tag(:div, id: comment.id) do
+      hr
       .row
         p= comment.owner.email
         - if policy(comment).destroy?
@@ -9,3 +10,4 @@ ul
           = link_to 'edit', edit_post_comment_path(post, comment), class: 'btn btn-secondary'
       .row
         h3= comment.content.html_safe
+

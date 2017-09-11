@@ -1,3 +1,6 @@
 = form_for [post, comment] do |f|
-  = f.cktext_area :content, id: 'comment-content'
+  div.data-no-turbolink
+    = f.text_area :content, :class => 'ckeditor'
+    / = f.cktext_area :content, id: 'comment-content'
+  = f.text_area :content, :class => 'ckeditor'
   = f.submit 'Add', class: 'btn btn-lg btn-primary btn-block'

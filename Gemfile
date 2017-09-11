@@ -15,12 +15,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'pundit'
 gem "mini_magick"
+# gem 'ckeditor_rails'
 gem 'ckeditor', '4.1.3'
 gem 'friendly_id', '~> 5.1.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
   gem 'ffaker'
   gem 'pry-rails'
 end
@@ -50,6 +50,8 @@ group :development, :test do
   gem 'rspec-rails'
 end
 group :test do
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
   gem 'database_cleaner'
   gem 'launchy'
 end

@@ -1,21 +1,17 @@
-feature 'Add post' do
-  scenario 'admin creates a new post' do
+feature 'Add post', js: true do
+  scenario 'admin creates a new post', driver: :selenium do
+    title = 'testtest'
+    content = 'somecontent'
     log_in
     visit new_admin_post_path
 
-    fill_in 'Title', with: 'testing'
-    fill_in 'content', with: 'tralalala'
+    fill_in 'Title', with: title
+    fill_in_ckeditor 'content', with: content
 
     click_button 'Add'
 
     expect(page).to have_content 'Post succesfully added'
-  end
-
-  def log_in
-    User.create(email: 'test@rspec.com', password: '123123', role: 'admin')
-    visit new_user_session_path
-    fill_in 'Email', with: 'test@rspec.com'
-    fill_in 'Password', with: '123123'
-    click_button 'Sign in'
+    expect(page).to have_content title
+    expect(page).to have_content content
   end
 end

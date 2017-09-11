@@ -48,9 +48,10 @@ describe Admin::PostsController, type: :controller do
         posts_count_before = Post.count
         delete :destroy, params: { id: resource.id }
 
+        # expect { call_request }.to change { Post.count }.by(-1)
+        expect(Post.count).to eq(posts_count_before - 1)
         expect(response).to have_http_status 302
         expect(response).to redirect_to root_path
-        expect(Post.count).to eq(posts_count_before - 1)
       end
     end
 
