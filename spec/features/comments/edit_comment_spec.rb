@@ -10,9 +10,7 @@ feature 'Edit comment', js: true do
       click_link 'edit'
     end
 
-    # fill_in_ckeditor 'content', with: 'edit testing message'
-    fill_in 'content', with: 'edit testing message'
-    # page.driver.browser.navigate.refresh
+    fill_in_ckeditor 'content', with: 'edit testing message'
     click_button 'Add'
 
     expect(page).to have_content 'edit testing message'
@@ -30,9 +28,8 @@ feature 'Edit comment', js: true do
       click_link 'edit'
     end
 
-    fill_in 'content', with: 'edit testing message'
+    fill_in_ckeditor 'content', with: 'edit testing message'
     click_button 'Add'
-    # fill_in_ckeditor 'content', with: 'edit testing message'
 
     expect(page).to have_content 'Comment succesfully updated'
     expect(page).to have_content 'edit testing message'
